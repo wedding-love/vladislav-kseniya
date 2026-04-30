@@ -131,7 +131,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 30px;
+      gap: 25px;
       flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
       margin-bottom: 45px;
       padding: 0 10px;
@@ -143,8 +143,8 @@
       flex-shrink: 0; /* Запрещаем сжатие */
     }
     .photo img {
-      width: 180px; /* Сжато в ширину */
-      height: 380px; /* Вытянуто вертикально */
+      width: 210px; /* Чуть пошире */
+      height: 370px; /* Вытянуто вертикально */
       object-fit: cover;
       border-radius: 2px;
       display: block;
@@ -730,11 +730,11 @@
     @media (max-width: 768px) {
       .photos {
         gap: 20px;
-        flex-wrap: nowrap; /* Остаются в одной строке */
+        flex-wrap: nowrap;
       }
       .photo img {
-        width: 150px;
-        height: 320px;
+        width: 170px;
+        height: 300px;
       }
       .photo {
         padding: 14px 14px 24px 14px;
@@ -793,11 +793,11 @@
     @media (max-width: 680px) {
       .photos {
         gap: 15px;
-        flex-wrap: nowrap; /* Остаются в одной строке */
+        flex-wrap: nowrap;
       }
       .photo img {
-        width: 130px;
-        height: 280px;
+        width: 145px;
+        height: 260px;
       }
       .photo {
         padding: 12px 12px 20px 12px;
@@ -852,11 +852,11 @@
     @media (max-width: 480px) {
       .photos {
         gap: 10px;
-        flex-wrap: nowrap; /* Остаются в одной строке */
+        flex-wrap: nowrap;
       }
       .photo img {
-        width: 110px;
-        height: 240px;
+        width: 125px;
+        height: 220px;
       }
       .photo {
         padding: 10px 10px 16px 10px;
