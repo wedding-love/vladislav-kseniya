@@ -131,19 +131,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 50px;
-      flex-wrap: wrap;
+      gap: 30px;
+      flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
       margin-bottom: 45px;
+      padding: 0 10px;
     }
     .photo {
       background: #fff;
-      padding: 16px 16px 26px 16px;
+      padding: 16px 16px 28px 16px;
       box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-      max-width: 300px;
+      flex-shrink: 0; /* Запрещаем сжатие */
     }
     .photo img {
-      width: 250px;
-      height: 330px;
+      width: 180px; /* Сжато в ширину */
+      height: 380px; /* Вытянуто вертикально */
       object-fit: cover;
       border-radius: 2px;
       display: block;
@@ -727,13 +728,16 @@
 
     /* Адаптивность */
     @media (max-width: 768px) {
+      .photos {
+        gap: 20px;
+        flex-wrap: nowrap; /* Остаются в одной строке */
+      }
       .photo img {
-        width: 200px;
-        height: 270px;
+        width: 150px;
+        height: 320px;
       }
       .photo {
-        max-width: 250px;
-        padding: 14px 14px 22px 14px;
+        padding: 14px 14px 24px 14px;
       }
       .frame {
         padding: 20px 20px 32px 20px;
@@ -787,16 +791,16 @@
     }
 
     @media (max-width: 680px) {
+      .photos {
+        gap: 15px;
+        flex-wrap: nowrap; /* Остаются в одной строке */
+      }
       .photo img {
-        width: 170px;
-        height: 230px;
+        width: 130px;
+        height: 280px;
       }
       .photo {
-        max-width: 220px;
         padding: 12px 12px 20px 12px;
-      }
-      .photos {
-        gap: 30px;
       }
       .frame {
         padding: 18px 18px 28px 18px;
@@ -846,16 +850,16 @@
       }
     }
     @media (max-width: 480px) {
+      .photos {
+        gap: 10px;
+        flex-wrap: nowrap; /* Остаются в одной строке */
+      }
       .photo img {
-        width: 150px;
-        height: 200px;
+        width: 110px;
+        height: 240px;
       }
       .photo {
-        max-width: 190px;
-        padding: 10px 10px 18px 10px;
-      }
-      .photos {
-        gap: 20px;
+        padding: 10px 10px 16px 10px;
       }
       .frame {
         padding: 14px 14px 24px 14px;
