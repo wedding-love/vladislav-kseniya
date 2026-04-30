@@ -67,19 +67,19 @@
       background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
     }
    .names {
-  position: absolute;
-  bottom: 35%; /* Измените это значение - чем больше %, тем ниже */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #fff;
-  font-size: clamp(57px, 12vw, 124px); /* Размер шрифта */
-  line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  text-transform: capitalize;
-  font-weight: 400;
-  white-space: nowrap;
-}
+      position: absolute;
+      bottom: 28%; /* Опущено ниже (было 35%) */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      font-size: clamp(65px, 13vw, 140px); /* Увеличен размер шрифта */
+      line-height: 1.2;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+      text-transform: capitalize;
+      font-weight: 400;
+      white-space: nowrap;
+    }
     .names .amp {
       font-size: 0.9em;
     }
@@ -781,8 +781,8 @@
         padding: 60px 20px 50px 20px;
       }
       .names {
-        font-size: clamp(36px, 8vw, 80px);
-        bottom: 21%;
+        font-size: clamp(50px, 11vw, 100px);
+        bottom: 28%;
       }
     }
 
@@ -838,8 +838,8 @@
       .colors { gap: 15px; }
       .colors span { width: 50px; height: 50px; }
       .names {
-        font-size: clamp(32px, 7vw, 60px);
-        bottom: 21%;
+        font-size: clamp(42px, 9vw, 80px);
+        bottom: 28%;
       }
     }
     @media (max-width: 480px) {
@@ -911,8 +911,8 @@
         font-size: 16px;
       }
       .names {
-        font-size: clamp(28px, 6vw, 48px);
-        bottom: 21%;
+        font-size: clamp(36px, 8vw, 60px);
+        bottom: 28%;
       }
     }
   </style>
