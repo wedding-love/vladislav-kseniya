@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <!-- Отключаем автоопределение телефонов -->
+  <meta name="format-detection" content="telephone=no">
   <title>Приглашение | Владислав & Ксения</title>
   <!-- Тонкие, элегантные шрифты: Cormorant Garamond (light) и Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -619,11 +621,18 @@
       font-size: 15px;
       opacity: 0.8;
     }
-    /* Номера телефонов - обычный цвет, без подчеркивания */
-    .phone-number {
-      color: inherit;
-      text-decoration: none;
+    /* Номера телефонов - принудительно убираем синий цвет и подчеркивание */
+    a.phone-link, 
+    a.phone-link:visited, 
+    a.phone-link:hover, 
+    a.phone-link:active,
+    a.phone-link:focus {
+      color: #5d4e37 !important;
+      text-decoration: none !important;
       font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      pointer-events: none; /* Отключаем возможность нажатия */
+      cursor: default;
     }
     .divider {
       height: 1px;
@@ -1103,10 +1112,10 @@
     <h2>КОНТАКТЫ</h2>
     <p class="desc">По всем вопросам вы можете<br>обращаться к нашему свадебному<br>координатору или к нам</p>
     
-    <p class="person">Кристина<br><span>(координатор в день свадьбы)</span><br><span class="phone-number">+375(29)253-32-33</span></p>
+    <p class="person">Кристина<br><span>(координатор в день свадьбы)</span><br><a href="tel:+375292533233" class="phone-link">+375(29)253-32-33</a></p>
     
     <p class="desc" style="margin-top: 10px;">Все вопросы до свадьбы можно задавать невесте в любом мессенджере:</p>
-    <p class="person">Ксения<br><span class="phone-number">+375(29)246-96-22</span></p>
+    <p class="person">Ксения<br><a href="tel:+375292469622" class="phone-link">+375(29)246-96-22</a></p>
     
     <div class="divider"></div>
     <p class="invite">С НЕТЕРПЕНИЕМ ЖДЕМ<br>ВСТРЕЧИ С ВАМИ<br>НА НАШЕЙ СВАДЬБЕ!</p>
