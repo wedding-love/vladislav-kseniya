@@ -68,12 +68,12 @@
     }
    .names {
       position: absolute;
-      bottom: 15%; /* Опущено ниже */
+      bottom: 15%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
       color: #fff;
-      font-size: clamp(65px, 13vw, 140px); /* Крупный шрифт */
+      font-size: clamp(65px, 13vw, 140px);
       line-height: 1.2;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
       text-transform: capitalize;
@@ -1089,7 +1089,7 @@
       </div>
       
       <label>Если Вы придете с парой или семьей, то впишите все имена</label>
-      <input type="text" name="guests" placeholder="Имя/возраст">
+      <input type="text" name="guests" placeholder="Имя/имена">
 
       <label style="margin-top: 25px;">Предпочтения в напитках</label>
       <div class="radio-group">
@@ -1189,10 +1189,31 @@
   nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % totalSlides; updateSlider(); });
   createDots();
 
-  // Форма RSVP
+  // Форма RSVP - ИСПРАВЛЕНО
   const rsvpForm = document.getElementById('rsvpForm');
-  rsvpForm.addEventListener('submit', (e) => {
-    alert('Спасибо! Ваш ответ отправляется...');
+  rsvpForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Останавливаем стандартную отправку
+    
+    const formData = new FormData(rsvpForm);
+    
+    try {
+      const response = await fetch(rsvpForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        alert('Спасибо! Ваш ответ успешно отправлен.');
+        rsvpForm.reset(); // Очищаем форму после успешной отправки
+      } else {
+        alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+      }
+    } catch (error) {
+      alert('Произошла ошибка при отправке. Пожалуйста, проверьте подключение к интернету.');
+    }
   });
 </script>
 </body>
