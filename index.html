@@ -26,7 +26,7 @@
     h1, h2, h3, .hero .names, .date, .love, .title, .month, .location h2, .timing h2, 
     .dresscode-section h2, .details-section h2, .rsvp h2, .wedding-block h1, 
     .contacts-block h2, .invite, .names-sign, .music-text, .time, .sub, .subtitle,
-    .timer span.timer-number, .calendar-date {
+    .timer span, .calendar-date {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       letter-spacing: 1px;
@@ -180,7 +180,6 @@
     .invite-block {
       background: #ffffff;
       text-align: center;
-      padding: 60px 20px;
     }
     .frame {
       background: #fff;
@@ -195,7 +194,7 @@
       transform: translateY(-5px);
     }
     .frame img {
-      /* УВЕЛИЧЕННОЕ ФОТО */
+      /* Увеличенное вертикальное фото */
       width: 380px;
       height: 480px;
       object-fit: cover;
@@ -494,87 +493,69 @@
     }
     .dot.active { background: #e67e22; width: 12px; height: 12px; }
 
-    /* ===== ТАЙМЕР "ДО СВАДЬБЫ" ===== */
+    /* ===== ТАЙМЕР "ДО СВАДЬБЫ" (ВОЗВРАЩЕН С ФОНОВЫМ ИЗОБРАЖЕНИЕМ) ===== */
     .wedding-block {
       position: relative;
+      height: 85vh;
       min-height: 500px;
-      background: linear-gradient(135deg, #fdf2e9 0%, #fadbd8 50%, #e67e22 100%);
+      background: url('таймер.jpg') center/cover no-repeat;
       color: white;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
-      overflow: hidden;
+      padding: 0;
     }
-    
-    /* Декоративные элементы фона */
-    .wedding-block::before {
-      content: '';
+    .wedding-block .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(0px);
-      z-index: 0;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
     }
-    
     .wedding-block .content {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 800px;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
-    
     .wedding-block h1 {
+      margin-top: 30px;
       font-size: clamp(32px, 7vw, 48px);
       letter-spacing: 2px;
       font-weight: 400;
-      margin-bottom: 50px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      line-height: 1.3;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }
-    
     .wedding-block .timer {
+      width: 100%;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 40px;
+      margin-bottom: 50px;
       flex-wrap: wrap;
     }
-    
-    .wedding-block .timer .timer-item {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 30px 25px;
-      min-width: 140px;
+    .wedding-block .timer div {
       text-align: center;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      background: none;
+      padding: 0;
+      min-width: 100px;
     }
-    
-    .wedding-block .timer .timer-item:hover {
-      transform: translateY(-5px);
-    }
-    
-    .wedding-block .timer span.timer-number {
+    .wedding-block .timer span {
       font-size: 56px;
       font-weight: 400;
       display: block;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      line-height: 1;
-      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      line-height: 1.1;
     }
-    
     .wedding-block .timer small {
       font-size: 14px;
       letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 300;
-      opacity: 0.9;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
 
     /* ===== КОНТАКТЫ (ОРАНЖЕВЫЙ АКЦЕНТ) ===== */
@@ -732,13 +713,6 @@
         height: 40px;
         font-size: 24px;
       }
-      .wedding-block .timer .timer-item {
-        min-width: 120px;
-        padding: 25px 20px;
-      }
-      .wedding-block .timer span.timer-number {
-        font-size: 46px;
-      }
       .invite-block h2 {
         font-size: 36px;
       }
@@ -764,16 +738,8 @@
         width: 280px;
         height: 360px;
       }
-      .wedding-block .timer {
-        gap: 20px;
-      }
-      .wedding-block .timer .timer-item {
-        min-width: 100px;
-        padding: 20px 15px;
-      }
-      .wedding-block .timer span.timer-number {
-        font-size: 38px;
-      }
+      .wedding-block .timer span { font-size: 40px; }
+      .wedding-block .timer { gap: 20px; }
       .polaroid-card img {
         width: 120px;
         height: 150px;
@@ -796,7 +762,6 @@
       .colors { gap: 15px; }
       .colors span { width: 50px; height: 50px; }
     }
-    
     @media (max-width: 480px) {
       .photo img {
         width: 130px;
@@ -817,27 +782,9 @@
         width: 240px;
         height: 310px;
       }
-      .wedding-block {
-        min-height: 400px;
-      }
-      .wedding-block .timer {
-        gap: 12px;
-      }
-      .wedding-block .timer .timer-item {
-        min-width: 80px;
-        padding: 18px 12px;
-        border-radius: 15px;
-      }
-      .wedding-block .timer span.timer-number {
-        font-size: 32px;
-      }
-      .wedding-block .timer small {
-        font-size: 12px;
-      }
-      .wedding-block h1 {
-        font-size: 26px;
-        margin-bottom: 30px;
-      }
+      .wedding-block .timer span { font-size: 32px; }
+      .wedding-block .timer { gap: 15px; }
+      .wedding-block h1 { font-size: 26px; }
       .heart-number { width: 42px; height: 42px; }
       .heart-number i { font-size: 42px; }
       .heart-number span { font-size: 16px; }
@@ -1002,27 +949,16 @@
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- ТАЙМЕР ДО СВАДЬБЫ -->
+<!-- ТАЙМЕР ДО СВАДЬБЫ (ВОЗВРАЩЕН ИСХОДНЫЙ ДИЗАЙН) -->
 <section class="wedding-block">
+  <div class="overlay"></div>
   <div class="content">
     <h1>ДО НАШЕЙ СВАДЬБЫ<br>ОСТАЛОСЬ:</h1>
     <div class="timer">
-      <div class="timer-item">
-        <span class="timer-number" id="weddingDays">0</span>
-        <small>ДНЕЙ</small>
-      </div>
-      <div class="timer-item">
-        <span class="timer-number" id="weddingHours">0</span>
-        <small>ЧАСОВ</small>
-      </div>
-      <div class="timer-item">
-        <span class="timer-number" id="weddingMinutes">0</span>
-        <small>МИНУТ</small>
-      </div>
-      <div class="timer-item">
-        <span class="timer-number" id="weddingSeconds">0</span>
-        <small>СЕКУНД</small>
-      </div>
+      <div><span id="weddingDays">0</span><small>ДНЕЙ</small></div>
+      <div><span id="weddingHours">0</span><small>ЧАСОВ</small></div>
+      <div><span id="weddingMinutes">0</span><small>МИНУТ</small></div>
+      <div><span id="weddingSeconds">0</span><small>СЕКУНД</small></div>
     </div>
   </div>
 </section>
@@ -1087,46 +1023,34 @@
     toggleBtn.innerHTML = audio.paused ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
   }
   toggleBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play().catch(e => console.log('Автовоспроизведение заблокировано браузером'));
-    } else {
-      audio.pause();
-    }
+    if (audio.paused) audio.play().catch(e => console.log);
+    else audio.pause();
     updateButtonIcon();
   });
   updateButtonIcon();
-  
-  // Обработчик для обновления иконки при воспроизведении
-  audio.addEventListener('play', updateButtonIcon);
-  audio.addEventListener('pause', updateButtonIcon);
+  audio.addEventListener('ended', () => { if (audio.loop) audio.play(); });
 
   // Таймер до 26 июня 2026
   const weddingDate = new Date("2026-06-26T00:00:00").getTime();
-  
   function updateWeddingTimer() {
     const now = new Date().getTime();
     const diff = weddingDate - now;
-    
     if (diff <= 0) {
       document.getElementById("weddingDays").innerText = "0";
-      document.getElementById("weddingHours").innerText = "00";
-      document.getElementById("weddingMinutes").innerText = "00";
-      document.getElementById("weddingSeconds").innerText = "00";
+      document.getElementById("weddingHours").innerText = "0";
+      document.getElementById("weddingMinutes").innerText = "0";
+      document.getElementById("weddingSeconds").innerText = "0";
       return;
     }
-    
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
     document.getElementById("weddingDays").innerText = days;
-    document.getElementById("weddingHours").innerText = hours.toString().padStart(2, '0');
-    document.getElementById("weddingMinutes").innerText = minutes.toString().padStart(2, '0');
-    document.getElementById("weddingSeconds").innerText = seconds.toString().padStart(2, '0');
+    document.getElementById("weddingHours").innerText = hours < 10 ? "0"+hours : hours;
+    document.getElementById("weddingMinutes").innerText = minutes < 10 ? "0"+minutes : minutes;
+    document.getElementById("weddingSeconds").innerText = seconds < 10 ? "0"+seconds : seconds;
   }
-  
-  // Запускаем таймер и обновляем каждую секунду
   setInterval(updateWeddingTimer, 1000);
   updateWeddingTimer();
 
@@ -1138,51 +1062,30 @@
   const dotsContainer = document.getElementById('sliderDots');
   let currentIndex = 0;
   const totalSlides = slides.length;
-  
   function updateSlider() {
     sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    document.querySelectorAll('.dot').forEach((dot, idx) => { 
-      dot.classList.toggle('active', idx === currentIndex); 
-    });
+    document.querySelectorAll('.dot').forEach((dot, idx) => { dot.classList.toggle('active', idx === currentIndex); });
   }
-  
   function createDots() {
     dotsContainer.innerHTML = '';
     for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('span');
       dot.classList.add('dot');
       if (i === currentIndex) dot.classList.add('active');
-      dot.addEventListener('click', () => { 
-        currentIndex = i; 
-        updateSlider(); 
-      });
+      dot.addEventListener('click', () => { currentIndex = i; updateSlider(); });
       dotsContainer.appendChild(dot);
     }
   }
-  
-  prevBtn.addEventListener('click', () => { 
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; 
-    updateSlider(); 
-  });
-  
-  nextBtn.addEventListener('click', () => { 
-    currentIndex = (currentIndex + 1) % totalSlides; 
-    updateSlider(); 
-  });
-  
+  prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; updateSlider(); });
+  nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % totalSlides; updateSlider(); });
   createDots();
-  
-  // Автопрокрутка слайдера каждые 5 секунд
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlider();
-  }, 5000);
 
   // Форма RSVP
   const rsvpForm = document.getElementById('rsvpForm');
   rsvpForm.addEventListener('submit', (e) => {
     // Не блокируем стандартное поведение, чтобы Formspree мог обработать
-    alert('Спасибо! Ваш ответ отправлен. Мы свяжемся с вами для подтверждения.');
+    // но можно добавить алерт как дополнительное уведомление
+    alert('Спасибо! Ваш ответ отправляется...');
   });
 </script>
 </body>
