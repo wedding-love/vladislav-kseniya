@@ -66,7 +66,7 @@
     }
     .names {
       position: absolute;
-      bottom: 21%; /* Было 6%, поднято на 15 единиц (6% + 15% = 21%) */
+      bottom: 21%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -76,7 +76,7 @@
       text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
       text-transform: capitalize;
       font-weight: 400;
-      white-space: nowrap; /* Имена в одной строке */
+      white-space: nowrap;
     }
     .names .amp {
       font-size: 0.9em;
@@ -137,7 +137,6 @@
       background: #fff;
       padding: 12px 12px 20px 12px;
       box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-      /* Увеличенные вертикальные карточки */
       max-width: 240px;
     }
     .photo img {
@@ -147,7 +146,6 @@
       border-radius: 2px;
       display: block;
     }
-    /* Статичное позиционирование без анимации */
     .photo:first-child {
       transform: translateY(-8px) translateX(-4px) rotate(-3deg);
     }
@@ -160,7 +158,7 @@
       font-weight: 400;
     }
     .heart-icon {
-      color: #e67e22; /* Оранжевый акцент */
+      color: #e67e22;
       font-size: 1.2em;
       display: inline-block;
     }
@@ -195,7 +193,6 @@
       transform: translateY(-5px);
     }
     .frame img {
-      /* Увеличенное вертикальное фото */
       width: 380px;
       height: 480px;
       object-fit: cover;
@@ -249,7 +246,6 @@
       align-items: center;
       justify-content: center;
     }
-    /* Сердце с цифрой 26 */
     .heart-number {
       position: relative;
       display: inline-flex;
@@ -261,7 +257,7 @@
     .heart-number i {
       position: absolute;
       font-size: 50px;
-      color: #e67e22; /* Оранжевый акцент */
+      color: #e67e22;
     }
     .heart-number span {
       position: relative;
@@ -284,7 +280,7 @@
 
     /* ===== МЕСТО ПРОВЕДЕНИЯ (ОРАНЖЕВЫЙ АКЦЕНТ) ===== */
     .location {
-      background: #fdf2e9;   /* Светло-пастельный оранжевый фон */
+      background: #fdf2e9;
       color: #5d4e37;
       text-align: center;
     }
@@ -429,7 +425,7 @@
     /* ===== СЛАЙДЕР (Вертикальные фото, большие кнопки) ===== */
     .slider-section {
       background: #ffffff;
-      max-width: 700px; /* Уже для вертикальных фото */
+      max-width: 700px;
       margin: 0 auto;
       padding: 60px 20px;
     }
@@ -438,7 +434,6 @@
       overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-      /* Соотношение сторон для вертикальных фото 3:4 */
       aspect-ratio: 3 / 4;
       background: #f9f9f9;
     }
@@ -494,7 +489,7 @@
     }
     .dot.active { background: #e67e22; width: 12px; height: 12px; }
 
-    /* ===== ТАЙМЕР "ДО СВАДЬБЫ" (ТЕКСТ ВВЕРХУ, ТАЙМЕР ВНИЗУ) ===== */
+    /* ===== ТАЙМЕР "ДО СВАДЬБЫ" ===== */
     .wedding-block {
       position: relative;
       width: 100%;
@@ -623,6 +618,12 @@
     .person span {
       font-size: 15px;
       opacity: 0.8;
+    }
+    /* Номера телефонов - обычный цвет, без подчеркивания */
+    .phone-number {
+      color: inherit;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
     }
     .divider {
       height: 1px;
@@ -1004,13 +1005,12 @@
   <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
   <p>Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества.</p>
   <div class="colors">
-    <!-- 6 цветов, включая #512b20 -->
-    <span style="background:#fdf2e9;"></span> <!-- пастельный оранжевый -->
-    <span style="background:#fadbd8;"></span> <!-- пастельный розовый -->
-    <span style="background:#fcf3cf;"></span> <!-- пастельный желтый -->
-    <span style="background:#d5f5e3;"></span> <!-- пастельный зеленый -->
-    <span style="background:#e67e22;"></span> <!-- акцентный оранжевый -->
-    <span style="background:#512b20;"></span> <!-- темно-коричневый -->
+    <span style="background:#fdf2e9;"></span>
+    <span style="background:#fadbd8;"></span>
+    <span style="background:#fcf3cf;"></span>
+    <span style="background:#d5f5e3;"></span>
+    <span style="background:#e67e22;"></span>
+    <span style="background:#512b20;"></span>
   </div>
 </section>
 
@@ -1069,7 +1069,6 @@
   <div class="container">
     <h2>АНКЕТА ГОСТЯ</h2>
     <p class="note">пожалуйста, подтвердите свое присутствие до 31.05.2026</p>
-    <!-- Интегрирован Formspree -->
     <form id="rsvpForm" action="https://formspree.io/f/maqargpp" method="POST">
       <label>Ваше имя и фамилия</label>
       <input type="text" name="name" placeholder="Имя и фамилия" required>
@@ -1104,10 +1103,10 @@
     <h2>КОНТАКТЫ</h2>
     <p class="desc">По всем вопросам вы можете<br>обращаться к нашему свадебному<br>координатору или к нам</p>
     
-    <p class="person">Кристина<br><span>(координатор в день свадьбы)</span><br>+375(29)253-32-33</p>
+    <p class="person">Кристина<br><span>(координатор в день свадьбы)</span><br><span class="phone-number">+375(29)253-32-33</span></p>
     
     <p class="desc" style="margin-top: 10px;">Все вопросы до свадьбы можно задавать невесте в любом мессенджере:</p>
-    <p class="person">Ксения<br><span>+375(29)246-96-22</span></p>
+    <p class="person">Ксения<br><span class="phone-number">+375(29)246-96-22</span></p>
     
     <div class="divider"></div>
     <p class="invite">С НЕТЕРПЕНИЕМ ЖДЕМ<br>ВСТРЕЧИ С ВАМИ<br>НА НАШЕЙ СВАДЬБЕ!</p>
@@ -1184,8 +1183,6 @@
   // Форма RSVP
   const rsvpForm = document.getElementById('rsvpForm');
   rsvpForm.addEventListener('submit', (e) => {
-    // Не блокируем стандартное поведение, чтобы Formspree мог обработать
-    // но можно добавить алерт как дополнительное уведомление
     alert('Спасибо! Ваш ответ отправляется...');
   });
 </script>
