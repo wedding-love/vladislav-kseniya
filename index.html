@@ -76,6 +76,7 @@
       text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
       text-transform: capitalize;
       font-weight: 400;
+      white-space: nowrap; /* Имена в одной строке */
     }
     .names .amp {
       font-size: 0.9em;
@@ -493,7 +494,7 @@
     }
     .dot.active { background: #e67e22; width: 12px; height: 12px; }
 
-    /* ===== ТАЙМЕР "ДО СВАДЬБЫ" (ЦИФРЫ ОПУЩЕНЫ ВНИЗ) ===== */
+    /* ===== ТАЙМЕР "ДО СВАДЬБЫ" (ТЕКСТ ВВЕРХУ, ТАЙМЕР ВНИЗУ) ===== */
     .wedding-block {
       position: relative;
       width: 100%;
@@ -505,7 +506,7 @@
       background-attachment: scroll;
       color: white;
       display: flex;
-      align-items: flex-end; /* Выравнивание контента по низу */
+      align-items: center;
       justify-content: center;
       text-align: center;
       padding: 0;
@@ -524,11 +525,12 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      padding: 0 30px 60px 30px; /* Увеличен нижний отступ */
+      height: 100%;
+      padding: 80px 30px 60px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end; /* Выравнивание контента по низу */
+      justify-content: space-between;
     }
     
     .wedding-block h1 {
@@ -537,7 +539,8 @@
       font-weight: 400;
       text-shadow: 3px 3px 12px rgba(0,0,0,0.7);
       line-height: 1.3;
-      margin-bottom: 40px; /* Отступ между заголовком и таймером */
+      margin: 0;
+      padding-top: 40px;
     }
     
     .wedding-block .timer {
@@ -548,6 +551,7 @@
       align-items: center;
       gap: 40px;
       flex-wrap: wrap;
+      padding-bottom: 20px;
     }
     
     .wedding-block .timer .timer-item {
@@ -762,10 +766,12 @@
       }
       .wedding-block h1 {
         font-size: clamp(30px, 6vw, 48px);
-        margin-bottom: 30px;
       }
       .wedding-block .content {
-        padding-bottom: 50px;
+        padding: 60px 20px 50px 20px;
+      }
+      .names {
+        font-size: clamp(36px, 8vw, 80px);
       }
     }
 
@@ -820,6 +826,9 @@
       .timing .title { font-size: 20px; }
       .colors { gap: 15px; }
       .colors span { width: 50px; height: 50px; }
+      .names {
+        font-size: clamp(32px, 7vw, 60px);
+      }
     }
     @media (max-width: 480px) {
       .photo img {
@@ -857,10 +866,9 @@
       }
       .wedding-block h1 {
         font-size: 24px;
-        margin-bottom: 25px;
       }
       .wedding-block .content {
-        padding-bottom: 40px;
+        padding: 40px 15px 40px 15px;
       }
       .heart-number { width: 42px; height: 42px; }
       .heart-number i { font-size: 42px; }
@@ -890,6 +898,9 @@
       .invite-block p {
         font-size: 16px;
       }
+      .names {
+        font-size: clamp(28px, 6vw, 48px);
+      }
     }
   </style>
 </head>
@@ -901,9 +912,7 @@
   <div class="hero-overlay"></div>
   <div class="date">26<br>06<br>26</div>
   <div class="names">
-    Владислав<br>
-    <span class="amp">&</span><br>
-    Ксения
+    Владислав <span class="amp">&</span> Ксения
   </div>
 </section>
 
@@ -1026,7 +1035,7 @@
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- ТАЙМЕР ДО СВАДЬБЫ (ЦИФРЫ ОПУЩЕНЫ ВНИЗ) -->
+<!-- ТАЙМЕР ДО СВАДЬБЫ (ТЕКСТ ВВЕРХУ, ТАЙМЕР ВНИЗУ) -->
 <section class="wedding-block">
   <div class="overlay"></div>
   <div class="content">
