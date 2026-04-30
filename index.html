@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <!-- Отключаем автоопределение телефонов -->
-  <meta name="format-detection" content="telephone=no">
   <title>Приглашение | Владислав & Ксения</title>
   <!-- Тонкие, элегантные шрифты: Cormorant Garamond (light) и Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,14 +26,14 @@
     h1, h2, h3, .hero .names, .date, .love, .title, .month, .location h2, .timing h2, 
     .dresscode-section h2, .details-section h2, .rsvp h2, .wedding-block h1, 
     .contacts-block h2, .invite, .names-sign, .music-text, .time, .sub, .subtitle,
-    .timer .timer-digit, .calendar-date {
+    .timer span, .calendar-date {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       letter-spacing: 1px;
     }
 
     /* Основной текст — Inter, лёгкий и читаемый */
-    p, .text, .desc, .person, .address, .footer-text, .note, label, .radio-group, button, .btn, .btn-location, .btn-chat, .time, .timer .timer-label {
+    p, .text, .desc, .person, .address, .footer-text, .note, label, .radio-group, button, .btn, .btn-location, .btn-chat, .time {
       font-family: 'Inter', sans-serif;
     }
 
@@ -66,19 +64,18 @@
       inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
     }
-   .names {
+    .names {
       position: absolute;
-      bottom: 15%; /* Опущено ниже */
+      bottom: 6%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
       color: #fff;
-      font-size: clamp(65px, 13vw, 140px); /* Крупный шрифт */
+      font-size: clamp(48px, 10vw, 120px);
       line-height: 1.2;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
       text-transform: capitalize;
       font-weight: 400;
-      white-space: nowrap;
     }
     .names .amp {
       font-size: 0.9em;
@@ -122,7 +119,7 @@
       color: #2c2c2c;
     }
 
-    /* ===== ИСТОРИЯ + ФОТО ПОЛАРОИД ===== */
+    /* ===== ИСТОРИЯ + ФОТО ПОЛАРОИД (без анимаций) ===== */
     .story {
       background: #ffffff;
       text-align: center;
@@ -137,17 +134,16 @@
     }
     .photo {
       background: #fff;
-      padding: 12px 12px 20px 12px;
+      padding: 10px 10px 16px 10px;
       box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-      max-width: 240px;
     }
     .photo img {
-      width: 200px;
-      height: 260px;
+      width: 170px;
+      height: 170px;
       object-fit: cover;
       border-radius: 2px;
-      display: block;
     }
+    /* Статичное позиционирование без анимации */
     .photo:first-child {
       transform: translateY(-8px) translateX(-4px) rotate(-3deg);
     }
@@ -160,7 +156,7 @@
       font-weight: 400;
     }
     .heart-icon {
-      color: #e67e22;
+      color: #e67e22; /* Оранжевый акцент */
       font-size: 1.2em;
       display: inline-block;
     }
@@ -184,34 +180,26 @@
     }
     .frame {
       background: #fff;
-      padding: 18px 18px 30px 18px;
+      padding: 10px 10px 18px 10px;
       display: inline-block;
-      box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
-      margin-bottom: 40px;
-      border-radius: 4px;
-      transition: transform 0.3s ease;
-    }
-    .frame:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      margin-bottom: 35px;
     }
     .frame img {
-      width: 380px;
-      height: 480px;
+      width: 280px;
+      height: 280px;
       object-fit: cover;
-      display: block;
-      border-radius: 2px;
     }
     .invite-block h2 {
-      font-size: 42px;
-      margin-bottom: 25px;
+      font-size: 38px;
+      margin-bottom: 20px;
       font-weight: 400;
-      color: #2c2c2c;
     }
     .invite-block p {
-      max-width: 600px;
+      max-width: 560px;
       margin: 0 auto;
-      font-size: 18px;
-      line-height: 1.8;
+      font-size: 17px;
+      line-height: 1.7;
       color: #444;
     }
 
@@ -248,6 +236,7 @@
       align-items: center;
       justify-content: center;
     }
+    /* Сердце с цифрой 26 */
     .heart-number {
       position: relative;
       display: inline-flex;
@@ -259,7 +248,7 @@
     .heart-number i {
       position: absolute;
       font-size: 50px;
-      color: #e67e22;
+      color: #e67e22; /* Оранжевый акцент */
     }
     .heart-number span {
       position: relative;
@@ -282,7 +271,7 @@
 
     /* ===== МЕСТО ПРОВЕДЕНИЯ (ОРАНЖЕВЫЙ АКЦЕНТ) ===== */
     .location {
-      background: #fdf2e9;
+      background: #fdf2e9;   /* Светло-пастельный оранжевый фон */
       color: #5d4e37;
       text-align: center;
     }
@@ -334,16 +323,14 @@
     }
     .polaroid-card {
       background: #fff;
-      padding: 8px 8px 16px 8px;
+      padding: 6px 6px 12px 6px;
       box-shadow: 0 12px 20px rgba(0,0,0,0.1);
       transform: rotate(var(--rot, 0deg));
-      max-width: 190px;
     }
     .polaroid-card img {
-      width: 160px;
-      height: 200px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
-      display: block;
     }
     .p1-wrap { --rot: -8deg; position: relative; top: -10px; }
     .p2-wrap { --rot: 8deg; position: relative; top: 15px; }
@@ -427,7 +414,7 @@
     /* ===== СЛАЙДЕР (Вертикальные фото, большие кнопки) ===== */
     .slider-section {
       background: #ffffff;
-      max-width: 700px;
+      max-width: 700px; /* Уже для вертикальных фото */
       margin: 0 auto;
       padding: 60px 20px;
     }
@@ -436,6 +423,7 @@
       overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+      /* Соотношение сторон для вертикальных фото 3:4 */
       aspect-ratio: 3 / 4;
       background: #f9f9f9;
     }
@@ -494,100 +482,62 @@
     /* ===== ТАЙМЕР "ДО СВАДЬБЫ" ===== */
     .wedding-block {
       position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 100vh;
-      max-height: 100vh;
-      background: url('таймер.jpg') center/100% 100% no-repeat;
-      background-size: 100% 100%;
-      background-attachment: scroll;
+      height: 85vh;
+      min-height: 500px;
+      background: url('таймер.jpg') center/cover no-repeat;
       color: white;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       text-align: center;
       padding: 0;
-      margin: 0;
-      overflow: hidden;
     }
-    
     .wedding-block .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
-    
     .wedding-block .content {
       position: relative;
       z-index: 2;
       width: 100%;
-      height: 100%;
-      padding: 80px 30px 60px 30px;
+      padding: 50px 20px;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-between;
+      height: 100%;
     }
-    
     .wedding-block h1 {
-      font-size: clamp(36px, 8vw, 60px);
-      letter-spacing: 4px;
+      margin-top: 30px;
+      font-size: clamp(32px, 7vw, 48px);
+      letter-spacing: 2px;
       font-weight: 400;
-      text-shadow: 3px 3px 12px rgba(0,0,0,0.7);
-      line-height: 1.3;
-      margin: 0;
-      padding-top: 40px;
     }
-    
     .wedding-block .timer {
       width: 100%;
-      max-width: 1000px;
       display: flex;
       justify-content: center;
-      align-items: center;
       gap: 40px;
+      margin-bottom: 50px;
       flex-wrap: wrap;
-      padding-bottom: 20px;
     }
-    
-    .wedding-block .timer .timer-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .wedding-block .timer div {
       text-align: center;
-      min-width: 140px;
       background: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      padding: 20px 15px;
-      border-radius: 0;
-      border: none;
-      transition: none;
+      padding: 0;
     }
-    
-    .wedding-block .timer .timer-item:hover {
-      transform: none;
-      background: none;
-    }
-    
-    .wedding-block .timer .timer-digit {
-      font-size: 80px;
+    .wedding-block .timer span {
+      font-size: 56px;
       font-weight: 400;
-      line-height: 1;
-      text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
-      margin-bottom: 10px;
       display: block;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
-    
-    .wedding-block .timer .timer-label {
-      font-size: 16px;
-      letter-spacing: 4px;
+    .wedding-block .timer small {
+      font-size: 14px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 300;
-      text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
-      display: block;
     }
 
     /* ===== КОНТАКТЫ (ОРАНЖЕВЫЙ АКЦЕНТ) ===== */
@@ -620,19 +570,6 @@
     .person span {
       font-size: 15px;
       opacity: 0.8;
-    }
-    /* Номера телефонов - принудительно убираем синий цвет и подчеркивание */
-    a.phone-link, 
-    a.phone-link:visited, 
-    a.phone-link:hover, 
-    a.phone-link:active,
-    a.phone-link:focus {
-      color: #5d4e37 !important;
-      text-decoration: none !important;
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      pointer-events: none;
-      cursor: default;
     }
     .divider {
       height: 1px;
@@ -727,29 +664,6 @@
 
     /* Адаптивность */
     @media (max-width: 768px) {
-      .photo img {
-        width: 160px;
-        height: 210px;
-      }
-      .photo {
-        max-width: 200px;
-        padding: 10px 10px 16px 10px;
-      }
-      .frame {
-        padding: 16px 16px 26px 16px;
-        margin-bottom: 35px;
-      }
-      .frame img {
-        width: 320px;
-        height: 400px;
-      }
-      .polaroid-card img {
-        width: 140px;
-        height: 175px;
-      }
-      .polaroid-card {
-        max-width: 170px;
-      }
       .slider-section {
         padding: 40px 15px;
       }
@@ -758,130 +672,30 @@
         height: 40px;
         font-size: 24px;
       }
-      .invite-block h2 {
-        font-size: 36px;
-      }
-      .invite-block p {
-        font-size: 17px;
-      }
-      .wedding-block .timer {
-        gap: 20px;
-      }
-      .wedding-block .timer .timer-item {
-        min-width: 110px;
-        padding: 15px 10px;
-      }
-      .wedding-block .timer .timer-digit {
-        font-size: 56px;
-      }
-      .wedding-block h1 {
-        font-size: clamp(30px, 6vw, 48px);
-      }
-      .wedding-block .content {
-        padding: 60px 20px 50px 20px;
-      }
-      .names {
-        font-size: clamp(50px, 11vw, 100px);
-        bottom: 15%;
-      }
     }
 
     @media (max-width: 680px) {
-      .photo img {
-        width: 140px;
-        height: 180px;
-      }
-      .photo {
-        max-width: 170px;
-        padding: 8px 8px 14px 8px;
-      }
-      .frame {
-        padding: 14px 14px 22px 14px;
-        margin-bottom: 30px;
-      }
-      .frame img {
-        width: 280px;
-        height: 360px;
-      }
-      .wedding-block .timer {
-        gap: 15px;
-      }
-      .wedding-block .timer .timer-item {
-        min-width: 90px;
-        padding: 10px 8px;
-      }
-      .wedding-block .timer .timer-digit {
-        font-size: 44px;
-      }
-      .wedding-block .timer .timer-label {
-        font-size: 12px;
-        letter-spacing: 2px;
-      }
-      .polaroid-card img {
-        width: 120px;
-        height: 150px;
-      }
-      .polaroid-card {
-        max-width: 150px;
-        padding: 6px 6px 12px 6px;
-      }
-      .photos-loc {
-        gap: 25px;
-      }
+      .photo img { width: 140px; height: 140px; }
+      .frame img { width: 240px; height: 240px; }
+      .wedding-block .timer span { font-size: 40px; }
+      .wedding-block .timer { gap: 20px; }
+      .polaroid-card img { width: 110px; height: 110px; }
       .contacts-block h2 { font-size: 38px; }
       .names-sign { font-size: 38px; }
       .invite { font-size: 22px; }
-      .invite-block h2 { font-size: 32px; }
       .dresscode-section, .details-section { padding: 50px 20px; }
+      .timer div { min-width: 60px; }
       .time { font-size: 28px; }
       .timing .title { font-size: 20px; }
       .colors { gap: 15px; }
       .colors span { width: 50px; height: 50px; }
-      .names {
-        font-size: clamp(42px, 9vw, 80px);
-        bottom: 15%;
-      }
     }
     @media (max-width: 480px) {
-      .photo img {
-        width: 130px;
-        height: 170px;
-      }
-      .photo {
-        max-width: 160px;
-        padding: 8px 8px 14px 8px;
-      }
-      .photos {
-        gap: 20px;
-      }
-      .frame {
-        padding: 12px 12px 20px 12px;
-        margin-bottom: 25px;
-      }
-      .frame img {
-        width: 240px;
-        height: 310px;
-      }
-      .wedding-block .timer {
-        gap: 10px;
-      }
-      .wedding-block .timer .timer-item {
-        min-width: 70px;
-        padding: 8px 5px;
-      }
-      .wedding-block .timer .timer-digit {
-        font-size: 36px;
-      }
-      .wedding-block .timer .timer-label {
-        font-size: 10px;
-        letter-spacing: 1px;
-      }
-      .wedding-block h1 {
-        font-size: 24px;
-      }
-      .wedding-block .content {
-        padding: 40px 15px 40px 15px;
-      }
+      .photo img { width: 120px; height: 120px; }
+      .frame img { width: 200px; height: 200px; }
+      .wedding-block .timer span { font-size: 32px; }
+      .wedding-block .timer { gap: 15px; }
+      .wedding-block h1 { font-size: 26px; }
       .heart-number { width: 42px; height: 42px; }
       .heart-number i { font-size: 42px; }
       .heart-number span { font-size: 16px; }
@@ -894,26 +708,6 @@
       }
       .btn-prev { left: 10px; }
       .btn-next { right: 10px; }
-      .polaroid-card img {
-        width: 110px;
-        height: 140px;
-      }
-      .polaroid-card {
-        max-width: 140px;
-      }
-      .photos-loc {
-        gap: 20px;
-      }
-      .invite-block h2 {
-        font-size: 28px;
-      }
-      .invite-block p {
-        font-size: 16px;
-      }
-      .names {
-        font-size: clamp(36px, 8vw, 60px);
-        bottom: 15%;
-      }
     }
   </style>
 </head>
@@ -921,11 +715,13 @@
 
 <!-- ПЕРВЫЙ ЭКРАН -->
 <section class="hero">
-  <img src="молодые.jpg" alt="Владислав и Ксения">
+  <img src="молодые.PNG" alt="Владислав и Ксения">
   <div class="hero-overlay"></div>
   <div class="date">26<br>06<br>26</div>
   <div class="names">
-    Владислав <span class="amp">&</span> Ксения
+    Владислав<br>
+    <span class="amp">&</span><br>
+    Ксения
   </div>
 </section>
 
@@ -940,7 +736,7 @@
 <section class="story">
   <div class="photos">
     <div class="photo"><img src="1.PNG" alt="Детское фото"></div>
-    <div class="photo"><img src="2.JPG" alt="Детское фото 2"></div>
+    <div class="photo"><img src="2.jpg" alt="Детское фото 2"></div>
   </div>
   <div class="love">В + К <span class="heart-icon">♡</span></div>
   <div class="title">Узнаете этих детишек?</div>
@@ -1014,12 +810,13 @@
   <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
   <p>Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества.</p>
   <div class="colors">
-    <span style="background:#fdf2e9;"></span>
-    <span style="background:#fadbd8;"></span>
-    <span style="background:#fcf3cf;"></span>
-    <span style="background:#d5f5e3;"></span>
-    <span style="background:#e67e22;"></span>
-    <span style="background:#512b20;"></span>
+    <!-- 6 цветов, включая #512b20 -->
+    <span style="background:#fdf2e9;"></span> <!-- пастельный оранжевый -->
+    <span style="background:#fadbd8;"></span> <!-- пастельный розовый -->
+    <span style="background:#fcf3cf;"></span> <!-- пастельный желтый -->
+    <span style="background:#d5f5e3;"></span> <!-- пастельный зеленый -->
+    <span style="background:#a8c2e0;"></span> <!-- акцентный оранжевый -->
+    <span style="background:#512b20;"></span> <!-- темно-коричневый -->
   </div>
 </section>
 
@@ -1036,9 +833,9 @@
 <section class="slider-section">
   <div class="slider-container">
     <div class="slider-wrapper" id="sliderWrapper">
-      <div class="slide"><img src="слайдер1.jpg" alt="Фото 1"></div>
+      <div class="slide"><img src="слайдер3.jpg" alt="Фото 1"></div>
       <div class="slide"><img src="слайдер2.jpg" alt="Фото 2"></div>
-      <div class="slide"><img src="слайдер3.jpg" alt="Фото 3"></div>
+      <div class="slide"><img src="слайдер1.jpg" alt="Фото 3"></div>
       <div class="slide"><img src="слайдер4.jpg" alt="Фото 4"></div>
     </div>
     <button class="slider-btn btn-prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
@@ -1047,28 +844,16 @@
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- ТАЙМЕР ДО СВАДЬБЫ (ТЕКСТ ВВЕРХУ, ТАЙМЕР ВНИЗУ) -->
+<!-- ТАЙМЕР ДО СВАДЬБЫ -->
 <section class="wedding-block">
   <div class="overlay"></div>
   <div class="content">
     <h1>ДО НАШЕЙ СВАДЬБЫ<br>ОСТАЛОСЬ:</h1>
     <div class="timer">
-      <div class="timer-item">
-        <span class="timer-digit" id="weddingDays">0</span>
-        <span class="timer-label">ДНЕЙ</span>
-      </div>
-      <div class="timer-item">
-        <span class="timer-digit" id="weddingHours">0</span>
-        <span class="timer-label">ЧАСОВ</span>
-      </div>
-      <div class="timer-item">
-        <span class="timer-digit" id="weddingMinutes">0</span>
-        <span class="timer-label">МИНУТ</span>
-      </div>
-      <div class="timer-item">
-        <span class="timer-digit" id="weddingSeconds">0</span>
-        <span class="timer-label">СЕКУНД</span>
-      </div>
+      <div><span id="weddingDays">0</span><small>ДНЕЙ</small></div>
+      <div><span id="weddingHours">0</span><small>ЧАСОВ</small></div>
+      <div><span id="weddingMinutes">0</span><small>МИНУТ</small></div>
+      <div><span id="weddingSeconds">0</span><small>СЕКУНД</small></div>
     </div>
   </div>
 </section>
@@ -1078,6 +863,7 @@
   <div class="container">
     <h2>АНКЕТА ГОСТЯ</h2>
     <p class="note">пожалуйста, подтвердите свое присутствие до 31.05.2026</p>
+    <!-- Интегрирован Formspree -->
     <form id="rsvpForm" action="https://formspree.io/f/maqargpp" method="POST">
       <label>Ваше имя и фамилия</label>
       <input type="text" name="name" placeholder="Имя и фамилия" required>
@@ -1089,7 +875,7 @@
       </div>
       
       <label>Если Вы придете с парой или семьей, то впишите все имена</label>
-      <input type="text" name="guests" placeholder="Имя/имена">
+      <input type="text" name="guests" placeholder="Имя/возраст">
 
       <label style="margin-top: 25px;">Предпочтения в напитках</label>
       <div class="radio-group">
@@ -1112,10 +898,10 @@
     <h2>КОНТАКТЫ</h2>
     <p class="desc">По всем вопросам вы можете<br>обращаться к нашему свадебному<br>координатору или к нам</p>
     
-    <p class="person">Кристина<br><span>(координатор в день свадьбы)</span><br><a href="tel:+375292533233" class="phone-link">+375(29)253-32-33</a></p>
+    <p class="person">Кристина<br><span>(координатор в день свадьбы)</span><br>+375(29)253-32-33</p>
     
     <p class="desc" style="margin-top: 10px;">Все вопросы до свадьбы можно задавать невесте в любом мессенджере:</p>
-    <p class="person">Ксения<br><a href="tel:+375292469622" class="phone-link">+375(29)246-96-22</a></p>
+    <p class="person">Ксения<br><span>+375(29)246-96-22</span></p>
     
     <div class="divider"></div>
     <p class="invite">С НЕТЕРПЕНИЕМ ЖДЕМ<br>ВСТРЕЧИ С ВАМИ<br>НА НАШЕЙ СВАДЬБЕ!</p>
@@ -1146,15 +932,15 @@
     const diff = weddingDate - now;
     if (diff <= 0) {
       document.getElementById("weddingDays").innerText = "0";
-      document.getElementById("weddingHours").innerText = "00";
-      document.getElementById("weddingMinutes").innerText = "00";
-      document.getElementById("weddingSeconds").innerText = "00";
+      document.getElementById("weddingHours").innerText = "0";
+      document.getElementById("weddingMinutes").innerText = "0";
+      document.getElementById("weddingSeconds").innerText = "0";
       return;
     }
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
     document.getElementById("weddingDays").innerText = days;
     document.getElementById("weddingHours").innerText = hours < 10 ? "0"+hours : hours;
     document.getElementById("weddingMinutes").innerText = minutes < 10 ? "0"+minutes : minutes;
@@ -1192,6 +978,8 @@
   // Форма RSVP
   const rsvpForm = document.getElementById('rsvpForm');
   rsvpForm.addEventListener('submit', (e) => {
+    // Не блокируем стандартное поведение, чтобы Formspree мог обработать
+    // но можно добавить алерт как дополнительное уведомление
     alert('Спасибо! Ваш ответ отправляется...');
   });
 </script>
